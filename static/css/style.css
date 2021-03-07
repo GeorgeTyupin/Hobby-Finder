@@ -1,0 +1,48 @@
+body {
+	background-color: #54575B !important;
+}
+
+.searchinput {
+	height: 50px;
+	background: #FEE5AC;
+	border-radius: 12px;
+	margin-top: 2em !important;
+	width: 62rem !important;
+}
+
+.filter {
+	background-color: #383B40;
+	height: 30rem;
+	border-radius: 20px;
+	position: sticky;
+  top: 10rem;
+ }
+
+.slk {
+	background-color: #383B40;
+	height: 30rem;
+	border-radius: 20px;
+	position: sticky;
+  top: 10rem;
+}
+
+.content {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.ad {
+	background-color: #383B40;
+	width: 48%;
+	height: 25rem;
+	border-radius: 20px;
+	margin-top: 2em;
+	/*border: 1px solid #8A8681;*/
+}
+
+.header {
+	display: flex;
+	justify-content: space-around;
+	height: 6rem;
+}
