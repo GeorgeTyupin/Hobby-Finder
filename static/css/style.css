@@ -2,6 +2,20 @@ body {
 	background-color: #54575B !important;
 }
 
+button, .form-submit {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+.wrapper {
+	z-index: 1;
+	min-height: 100vh;
+  height: 100%;
+}
+
 .searchinput {
 	height: 50px;
 	background: #FEE5AC;
@@ -24,6 +38,7 @@ body {
 	border-radius: 20px;
 	position: sticky;
   top: 10rem;
+  text-align: center;
 }
 
 .content {
@@ -45,4 +60,76 @@ body {
 	display: flex;
 	justify-content: space-around;
 	height: 6rem;
+}
+
+.background-form {
+	background-color: rgba(0, 0, 0, 0.70);
+	position: absolute;
+	z-index: 2;
+	height: 2000px;
+	min-width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+}
+
+.hide {
+	display: none;
+}
+
+.create-ad {
+	background-color: #2C9221;
+	width: 10rem;
+	height: 2.5rem;
+	border-radius: 12px;
+	color: #DCE0E8;
+	font-size: 1.5rem;
+	margin-top: 26rem;
+}
+
+.create-ad:hover, .form-submit:hover {
+	background-color: #5EC155;
+}
+
+.form-ad {
+	width: 35rem;
+	height: 40rem;
+	border-radius: 15px;
+	margin-top: 5rem;
+	background-color: #555658;
+	border-top: #2C9221 solid 6px;
+	color: #D7D9DE;
+}
+
+.form-header {
+	margin-top: 1.4rem;
+	font-size: 2.2rem;
+}
+
+.form-input, .form-description {
+	width: 26rem;
+	height: 2.5rem;
+	margin-top: 1.4rem;
+	border-radius: 7px;
+	background-color: #DEE2E2;
+}
+
+.form-description {
+	height: 6rem;
+}
+
+.form-submit {
+	background-color: #2C9221;
+	width: 18rem;
+	height: 2.24rem;
+	border-radius: 8px;
+	margin-top: 2rem;
+}
+
+.add-img {
+	background-color: #fff;
+	width: 22rem;
+	height: 12rem;
+	margin-top: 1.3rem;
+	margin-left: 6.1rem;
 }
