@@ -4,8 +4,9 @@
 ======================================================================================================== 
 */
 function createForm() {
-	$(".create-ad").click(function(){
-		$(".background-form").classList.remove('hide');
+	btn = document.querySelector(".create-ad");
+	btn.addEventListener('click', function(){
+		document.querySelector('.background-form').classList.remove('hide');
 	})
 }
 
@@ -13,4 +14,4 @@ function main() {
 	createForm();
 }
 
-main();
+document.addEventListener("DOMContentLoaded", main);
