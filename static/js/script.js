@@ -7,6 +7,7 @@ function createForm() {
 	btn = document.querySelector(".create-ad");
 	btn.addEventListener('click', function(){
 		document.querySelector('.background-form').classList.remove('hide');
+<<<<<<< HEAD
 	});
 
 }
@@ -34,6 +35,9 @@ function createAd() {
 		document.querySelector('.background-form').classList.add('hide');
 		console.log("hello")
 	});
+=======
+	})
+>>>>>>> parent of 76ee79a (14.03.2021)
 }
 
 function main() {
