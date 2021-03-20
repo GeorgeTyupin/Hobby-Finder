@@ -34,6 +34,7 @@ function createAd() {
 		document.querySelector('.background-form').classList.add('hide');
 		console.log("hello")
 	});
+}
 
 function main() {
 	createForm();
