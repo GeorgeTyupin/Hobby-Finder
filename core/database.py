@@ -1,24 +1,24 @@
 from . import DATA_DST
+import sqlite3
 
 class Database():
+    # data = DATA_DST
     def __init__(self):
-        print('init')
+        print('init database')
+        # self.data = data
 
     def loadUsersTable(self, login, password):
         with sqlite3.connect(DATA_DST) as cur:
             sql = f"SELECT * FROM users WHERE user_name = '{login}' "
-            print(sql)
             result = cur.execute(sql).fetchone()
-            print(result)
-            if (result and result[2] == password):
+            return result     
+    def test(self):
+        try:
+            with sqlite3.connect('database/database.db') as cur:
+                sql = f"SELECT * FROM users "
+                result = cur.execute(sql).fetchone()
+                return result, sql, "База данных без ошибки:", DATA_DST
+        except:
+            return "Alarm База данных:", DATA_DST
 
-                session['login'] = result[1]
-                session['id'] = result[0]
-                session['category'] = result[3]
-                session['description'] = result[4]
-                session['auth'] = True
 
-                response = make_response(redirect(f"/"))
-                return response
-            else:
-                return render_template('auth.html')
