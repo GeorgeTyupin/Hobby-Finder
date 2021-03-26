@@ -1,0 +1,62 @@
+body {
+	background-color: #54575B !important;
+	display: flex;
+	justify-content: center;
+}
+
+.input-submit{
+	outline: none;
+	padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+.auth-block {
+	margin-top: 10rem;
+	width: 40rem;
+	height: 25rem;
+	background-color: #383B40;
+	border-radius: 30px;
+	text-align: center;
+}
+
+.auth-header {
+	color: #D7D9DE;
+	margin-top: 2.5rem;
+}
+
+.input-name, .input-password, .input-submit {
+	/*text-align: center;*/
+	font-size: 1.2rem
+}
+
+.input-name, .input-password {
+	background-color: #FFF5E0;
+	height: 2.6rem;
+	width: 25rem;
+	border-radius: 10px;
+}
+
+.input-name {
+	margin-top: 2.3rem;
+}
+
+.input-password {
+	margin-top: 2.2rem;
+}
+
+.input-submit {
+	background-color: #2C9221;
+	color: #D7D9DE;
+	height: 2.6rem;
+	width: 14.8rem;
+	margin-top: 2rem;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.input-submit:hover {
+	background-color: #5EC155;
+}
