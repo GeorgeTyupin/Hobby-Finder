@@ -53,6 +53,7 @@ button, .form-submit {
 	height: 25rem;
 	border-radius: 20px;
 	margin-top: 2em;
+	text-align: center;
 	/*border: 1px solid #8A8681;*/
 }
 
@@ -118,14 +119,34 @@ button, .form-submit {
 	height: 6rem;
 }
 
-.form-submit {
-	background-color: #2C9221;
-	width: 18rem;
+.form-submit, .form-close {
 	height: 2.24rem;
 	border-radius: 8px;
-	margin-top: 2rem;
+	margin-top: 1.7rem;
+	font-size: 1.2rem;
 }
 
+.form-submit {
+	background-color: #2C9221;
+	width: 15rem;
+}
+
+.form-close {
+	background-color: #FF5A37;
+	width: 10rem;
+}
+
+.form-close:hover {
+	background-color: #F97D55;
+}
+
+.add-img {
+	background-color: #fff;
+	width: 22rem;
+	height: 12rem;
+	margin-top: 1.3rem;
+	margin-left: 6.1rem;
+}
 
 .ad-img {
 	background-color: #fff;
