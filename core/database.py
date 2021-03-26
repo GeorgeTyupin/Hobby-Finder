@@ -8,10 +8,11 @@ class Database():
         # self.data = data
 
     def loadUsersTable(self, login, password):
-        with sqlite3.connect(DATA_DST) as cur:
+        with sqlite3.connect('database/database.db') as cur:
             sql = f"SELECT * FROM users WHERE user_name = '{login}' "
             result = cur.execute(sql).fetchone()
-            return result     
+            return result
+             
     def test(self):
         try:
             with sqlite3.connect('database/database.db') as cur:
@@ -20,5 +21,3 @@ class Database():
                 return result, sql, "База данных без ошибки:", DATA_DST
         except:
             return "Alarm База данных:", DATA_DST
-
-

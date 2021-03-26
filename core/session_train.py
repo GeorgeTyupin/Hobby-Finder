@@ -1,4 +1,5 @@
 from . import DATA_DST
+from . import database
 from flask import Flask , render_template , make_response , request , session , redirect
 
 class Session():
@@ -18,9 +19,8 @@ class Session():
                 session['login'] = result[1]
                 session['id'] = result[0]
                 session['category'] = result[3]
-                session['description'] = result[4]
                 session['auth'] = True
-                response = make_response(redirect(f"/"))
+                response = make_response(redirect(f"/auth"))
                 return response
         else:
             return render_template('auth.html')
