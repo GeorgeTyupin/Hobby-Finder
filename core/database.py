@@ -19,6 +19,9 @@ class Database():
             cur.execute(sql)
             cur.commit()
 
+    def addAD(self):
+        pass
+
     def test(self):
         try:
             with sqlite3.connect('database/database.db') as cur:

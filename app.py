@@ -7,7 +7,16 @@ print(db.test())
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "f116d0a5491cbe27e7bb07016b694eb4f6a1976e9f9c55621b9c5418567ac02c"
 
-@app.route("/" , methods = ['GET' , 'POST'])
+@app.route("/", methods=['GET', 'POST'])
+def index():
+    if request.method == 'GET':
+        return render_template('index.html')
+    else:
+        data = request.form.get('data')
+        print(data)
+        return core.workingWithAds.loadAdToDatabase(data)
+
+@app.route("/auth" , methods = ['GET' , 'POST'])
 def auth():
     if request.method == 'GET':
         return core.auth.GET(session)

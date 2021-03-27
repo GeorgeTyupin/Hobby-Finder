@@ -5,7 +5,7 @@ print('init')
 
 def GET(session):
     if 'auth' in session and session['auth']:
-        return render_template('index.html')
+        return make_response(redirect(f"/"))
     else:
         return render_template('auth.html')
         
