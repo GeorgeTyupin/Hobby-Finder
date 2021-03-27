@@ -24,7 +24,7 @@ function closeForm() {
 // создание объявления
 function createAd() {
 	document.querySelector('.form-submit').addEventListener('click', function(){
-		data = []
+		data = {}
 		data['ad_name'] = document.querySelector('.form-input-name').value
 		data['ad_category'] = document.querySelector('.form-input-category').value
 		console.log(data);
@@ -51,7 +51,9 @@ function createAd() {
 
 // отправка информации об объявлении на сервер
 function  sendingAd(data) {
-	$.post("/", data)
+	$.post("/", data, success = function(response) {
+		console.log(response)
+	});
 }
 
 

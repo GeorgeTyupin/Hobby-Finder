@@ -12,7 +12,9 @@ def index():
     if request.method == 'GET':
         return render_template('index.html')
     else:
-        data = request.form.get('data')
+        data = {}
+        data['ad_name'] = request.form.get('ad_name')
+        data['ad_category'] = request.form.get('ad_name')
         print(data)
         return core.workingWithAds.loadAdToDatabase(data)
 
