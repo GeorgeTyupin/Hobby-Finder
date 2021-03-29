@@ -60,3 +60,29 @@ body {
 .input-submit:hover {
 	background-color: #5EC155;
 }
+
+.reg-wrap {
+	background-color: #FF5A37;
+	width: 10rem;
+	height: 2.6rem;
+	border-radius: 10px;
+	display: flex;
+	align-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1rem;
+}
+
+.reg-wrap:hover {
+	background-color: #F97D55;
+}
+
+.reg {
+	text-decoration:none;
+	color: #D7D9DE;
+}
+
+.reg:hover {
+	text-decoration:none;
+	color: #D7D9DE;
+}

@@ -37,8 +37,8 @@ button, .form-submit {
 	height: 30rem;
 	border-radius: 20px;
 	position: sticky;
-  top: 10rem;
-  text-align: center;
+	top: 10rem;
+	text-align: center;
 }
 
 .content {
@@ -85,7 +85,7 @@ button, .form-submit {
 	border-radius: 12px;
 	color: #DCE0E8;
 	font-size: 1.5rem;
-	margin-top: 26rem;
+	margin-top: 23rem;
 }
 
 .create-ad:hover, .form-submit:hover {
@@ -170,4 +170,35 @@ button, .form-submit {
 .categories {
 	margin-top: 1.2rem;
 	color: #773DA2;
+}
+
+.singin-link {
+  text-decoration:none;
+  font-size: 1.6rem;
+  color: #A4BBBB;
+}
+
+.singin {
+	border: 2px solid #A4BBBB;
+	border-radius: 10px;
+	width: 7rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1rem;
+}
+
+.singin-link:hover {
+	color: #8EA0A0;
+}
+
+.singin:hover {
+	border: 2px solid #7A8E8E;
+}
+
+.slk-user-name {
+	color: #A4BBBB;
+	margin-top: 0.5rem;
+	font-size: 1.6rem;
+	margin-left: auto;
+	margin-right: auto;
 }

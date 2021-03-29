@@ -1,4 +1,4 @@
 from . import database
 
-def loadAdToDatabase(data):
-  return data
+def loadAdToDatabase(data, session):
+  return session['login']

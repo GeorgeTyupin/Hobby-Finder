@@ -45,6 +45,21 @@ function createAd() {
 
 /*
 ========================================================================================================
+РЕНДЕРИНГ ДАННЫХ С СЕРВЕРА НА СТРАНИЧКЕ
+========================================================================================================
+*/
+function renderName(response) {
+	console.log(response)
+	if (response) {
+		document.querySelector('.singin').classList.add('hide');
+		// $('slk-user-name').text(response);
+	} else {
+		document.querySelector('.slk-user-name').classList.remove('hide');
+	}
+}
+
+/*
+========================================================================================================
 РАБОТА С СЕРВЕРОМ
 ========================================================================================================
 */
@@ -56,12 +71,17 @@ function  sendingAd(data) {
 	});
 }
 
-
+function authCheck() {
+	$.post("/", 'hello' , success = function (response) {
+		renderName(response);
+	});
+}
 
 function main() {
 	createForm();
 	createAd();
 	closeForm();
+	authCheck();
 }
 
 document.addEventListener("DOMContentLoaded", main);

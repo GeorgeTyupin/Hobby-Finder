@@ -16,7 +16,7 @@ def index():
         data['ad_name'] = request.form.get('ad_name')
         data['ad_category'] = request.form.get('ad_name')
         print(data)
-        return core.workingWithAds.loadAdToDatabase(data)
+        return core.workingWithAds.loadAdToDatabase(data, session)
 
 @app.route("/auth" , methods = ['GET' , 'POST'])
 def auth():
