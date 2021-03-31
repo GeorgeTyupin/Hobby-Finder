@@ -12,6 +12,12 @@ class Database():
             result = cur.execute(sql).fetchone()
             return result
     
+    def loadAdsTable(self, login):
+        with sqlite3.connect('database/database.db') as cur:
+            sql = f"SELECT * FROM users WHERE user_name = '{login}' "
+            result = cur.execute(sql).fetchone()
+            return result
+
     def addUser(self, login, password):
         with sqlite3.connect("database/database.db") as cur:
             sql = f"""INSERT INTO users ('user_name' , 'password') 
@@ -19,8 +25,12 @@ class Database():
             cur.execute(sql)
             cur.commit()
 
-    def addAD(self):
-        pass
+    def addAD(self, data):
+        with sqlite3.connect("database/database.db") as cur:
+            sql = f"""INSERT INTO ads ('ad_name' , 'author_id', 'ad_category', 'ad_description') 
+                VALUES ('{data['ad_name']}','{data['author_id']}','{data['ad_category']}','{data['ad-description']}')"""
+            cur.execute(sql)
+            cur.commit()
 
     def test(self):
         try:

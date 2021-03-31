@@ -15,6 +15,7 @@ def index():
         data = {}
         data['ad_name'] = request.form.get('ad_name')
         data['ad_category'] = request.form.get('ad_name')
+        data['ad-description'] = request.form.get('ad-description')
         print(data)
         return core.workingWithAds.loadAdToDatabase(data, session)
 

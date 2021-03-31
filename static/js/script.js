@@ -27,7 +27,7 @@ function createAd() {
 		data = {}
 		data['ad_name'] = document.querySelector('.form-input-name').value
 		data['ad_category'] = document.querySelector('.form-input-category').value
-		console.log(data);
+		data['ad-description'] = document.querySelector('.form-input-category').value
 		$('.content').append(`				
 					<div class="ad" class="ad">
 						<div class="ad-img"></div>
@@ -58,6 +58,15 @@ function renderName(response) {
 	}
 }
 
+function renderAd(response) {
+	console.log(response)
+	for (let i = 0; i < response.length; i++) {
+		console.log(i)
+	}
+}
+
+
+
 /*
 ========================================================================================================
 РАБОТА С СЕРВЕРОМ
@@ -71,9 +80,10 @@ function  sendingAd(data) {
 	});
 }
 
-function authCheck() {
+function getData() {
 	$.post("/", 'hello' , success = function (response) {
 		renderName(response);
+		renderAd(response);
 	});
 }
 
@@ -81,7 +91,7 @@ function main() {
 	createForm();
 	createAd();
 	closeForm();
-	authCheck();
+	getData();
 }
 
 document.addEventListener("DOMContentLoaded", main);
