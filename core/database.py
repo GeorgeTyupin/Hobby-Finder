@@ -12,11 +12,19 @@ class Database():
             result = cur.execute(sql).fetchone()
             return result
     
-    def loadAdsTable(self, login):
+    def loadAdsTable(self):
         with sqlite3.connect('database/database.db') as cur:
-            sql = f"SELECT * FROM users WHERE user_name = '{login}' "
-            result = cur.execute(sql).fetchone()
+            sql = f"SELECT * FROM ads "
+            result = cur.execute(sql).fetchall()
             return result
+    
+    def checkingAdForUniqueness(self, data):
+        with sqlite3.connect('database/database.db') as cur:
+            sql = f"SELECT * FROM ads WHERE ad_name = '{data['ad_name']}' AND author_id = '{data['author_id']}' "
+            result = cur.execute(sql).fetchall()
+            print(result)
+            if data['author_id'] == result[2] and data['ad_name'] == result[1]:
+                return '123'
 
     def addUser(self, login, password):
         with sqlite3.connect("database/database.db") as cur:

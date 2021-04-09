@@ -10,7 +10,9 @@ app.config['SECRET_KEY'] = "f116d0a5491cbe27e7bb07016b694eb4f6a1976e9f9c55621b9c
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        return render_template('index.html')
+        data = db.loadAdsTable()
+        print(data)
+        return render_template('index.html', data = data)
     else:
         data = {}
         data['ad_name'] = request.form.get('ad_name')
@@ -18,6 +20,10 @@ def index():
         data['ad-description'] = request.form.get('ad-description')
         print(data)
         return core.workingWithAds.loadAdToDatabase(data, session)
+
+@app.route("/getdata", methods=['GET', 'POST'])
+def render():
+    return '123'
 
 @app.route("/auth" , methods = ['GET' , 'POST'])
 def auth():

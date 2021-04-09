@@ -1,9 +1,10 @@
 from . import database
 
 def loadAdToDatabase(data, session):
-  data['author_id'] = session['login']
-  if data['ad_category'] or data['ad-description'] or data['ad_name']:
+  if session['login']:
+    data['author_id'] = session['id']
     db = database.Database()
-    db.addAD(data)
-  print(data)
-  return data
+    if data['ad_name']:
+      db.addAD(data)
+  return 'yes'
+  

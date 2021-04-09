@@ -36,18 +36,26 @@
 
 			<div class="filter col-2"></div>
 			<div class="content col">
-				<div class="ad" class="ad" style="margin-top: 0px;">
+				<div class="ad" style="margin-top: 0px;">
 					<div class="ad-img"></div>
 					<h2 class="ad-name">Шахматы</h2>
 					<p class="ad-category">Категория:</p>
 					<a href="#" class="categories">Кружки, обучение</a>
 				</div>
-				<div class="ad" class="ad" style="margin-top: 0px;">
+				<div class="ad" style="margin-top: 0px;">
 					<div class="ad-img"></div>
 					<h2 class="ad-name">Частная школа</h2>
 					<p class="ad-category">Категория:</p>
 					<a href="#" class="categories">Школа, учебное учериждение</a>
 				</div>
+				{%for i in data%}
+					<div class="ad">
+						<div class="ad-img"></div>
+						<h2 class="ad-name">{{i[1]}}</h2>
+						<p class="ad-category">Категория:</p>
+						<a href="#" class="categories">{{i[3]}}</a>
+					</div>
+				{%endfor%}
 			</div>
 
 			<div class="slk col-2">
