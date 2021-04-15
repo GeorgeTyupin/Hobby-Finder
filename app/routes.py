@@ -1,5 +1,5 @@
 from flask import Flask , render_template , make_response , request , session , redirect
-import core
+from . import core
 from app import app
 
 db = core.database.Database()
