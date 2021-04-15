@@ -35,27 +35,35 @@
 			<div class="col-1"></div>
 
 			<div class="filter col-2"></div>
+			
 			<div class="content col">
-				<div class="ad" style="margin-top: 0px;">
-					<div class="ad-img"></div>
-					<h2 class="ad-name">Шахматы</h2>
-					<p class="ad-category">Категория:</p>
-					<a href="#" class="categories">Кружки, обучение</a>
-				</div>
-				<div class="ad" style="margin-top: 0px;">
-					<div class="ad-img"></div>
-					<h2 class="ad-name">Частная школа</h2>
-					<p class="ad-category">Категория:</p>
-					<a href="#" class="categories">Школа, учебное учериждение</a>
-				</div>
-				{%for i in data%}
-					<div class="ad">
+				<div class="content-wrap">
+					<div class="ad" style="margin-top: 0px;">
 						<div class="ad-img"></div>
-						<h2 class="ad-name">{{i[1]}}</h2>
+						<h2 class="ad-name">Шахматы</h2>
 						<p class="ad-category">Категория:</p>
-						<a href="#" class="categories">{{i[3]}}</a>
+						<a href="#" class="categories">Кружки, обучение</a>
 					</div>
-				{%endfor%}
+					<div class="ad" style="margin-top: 0px;">
+						<div class="ad-img"></div>
+						<h2 class="ad-name">Частная школа</h2>
+						<p class="ad-category">Категория:</p>
+						<a href="#" class="categories">Школа, учебное учериждение</a>
+					</div>
+
+					{%for i in data%}
+						<div class="ad">
+							<div class="ad-img"></div>
+							<h2 class="ad-name">{{i[1]}}</h2>
+							<p class="ad-category">Категория:</p>
+							<a href="#" class="categories">{{i[3]}}</a>
+						</div>
+					{%endfor%}
+				</div>
+				
+				<div class="render-btn">
+					<p class="text-render-btn">Еще 20 объявлений</p>
+				</div>
 			</div>
 
 			<div class="slk col-2">

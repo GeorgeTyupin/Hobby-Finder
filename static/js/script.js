@@ -1,3 +1,4 @@
+data = {}
 /*
 ========================================================================================================
 РАБОТА НА СТРАНИЧКЕ
@@ -24,7 +25,6 @@ function closeForm() {
 // создание объявления
 function createAd() {
 	document.querySelector('.form-submit').addEventListener('click', function(){
-		data = {}
 		data['ad_name'] = document.querySelector('.form-input-name').value
 		data['ad_category'] = document.querySelector('.form-input-category').value
 		data['ad-description'] = document.querySelector('.form-input-category').value
@@ -60,9 +60,10 @@ function renderName(response) {
 
 function renderAd(response) {
 	console.log(response)
-	for (let i = 0; i < response.length; i++) {
-		console.log(i)
-	}
+	respons.forEach(element => {
+		
+	});
+	data['count'] = data['count'] + 20
 }
 
 
@@ -84,6 +85,12 @@ function getData() {
 	$.post("/", 'hello' , success = function (response) {
 		renderName(response);
 		renderAd(response);
+	});
+	data['count'] = 20
+	document.querySelector('render-btn').addEventListener('click', function(params) {
+		$.post("/getdata", data, success = function (response) {
+			console.log(response)
+		});
 	});
 }
 

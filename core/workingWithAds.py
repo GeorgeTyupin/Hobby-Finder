@@ -7,4 +7,3 @@ def loadAdToDatabase(data, session):
     if data['ad_name']:
       db.addAD(data)
   return 'yes'
-  

@@ -23,7 +23,8 @@ def index():
 
 @app.route("/getdata", methods=['GET', 'POST'])
 def render():
-    return '123'
+    data['count'] = request.form.get('count')
+    return core.workingWithAds.renderDataFromDatabase(data)
 
 @app.route("/auth" , methods = ['GET' , 'POST'])
 def auth():
