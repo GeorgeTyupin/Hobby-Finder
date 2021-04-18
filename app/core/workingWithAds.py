@@ -6,4 +6,4 @@ def loadAdToDatabase(data, session):
     db = database.Database()
     if data['ad_name']:
       db.addAD(data)
-  return 'yes'
+  return db.loadAdsTable()

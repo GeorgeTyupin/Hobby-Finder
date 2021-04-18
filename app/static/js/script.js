@@ -28,7 +28,7 @@ function createAd() {
 		data['ad_name'] = document.querySelector('.form-input-name').value
 		data['ad_category'] = document.querySelector('.form-input-category').value
 		data['ad-description'] = document.querySelector('.form-input-category').value
-		$('.content').append(`				
+		$('.content-wrap').append(`				
 					<div class="ad" class="ad">
 						<div class="ad-img"></div>
 						<h2 class="ad-name">${data['ad_name']}</h2>
@@ -60,10 +60,15 @@ function renderName(response) {
 
 function renderAd(response) {
 	console.log(response)
-	respons.forEach(element => {
-		
+	response.forEach(element => {
+		$('.content-wrap').append(`				
+					<div class="ad" class="ad">
+						<div class="ad-img"></div>
+						<h2 class="ad-name">${element['ad_name']}</h2>
+						<p class="ad-category">Категория:</p>
+						<a href="#" class="categories">${element['ad_category']}</a>
+					</div>`);
 	});
-	data['count'] = data['count'] + 20
 }
 
 
@@ -87,9 +92,12 @@ function getData() {
 		renderAd(response);
 	});
 	data['count'] = 20
-	document.querySelector('render-btn').addEventListener('click', function(params) {
+	document.querySelector('.render-btn').addEventListener('click', function(params) {
+		ads = document.querySelectorAll('.ad');
+		last_ad = ads[ads.length - 1];
+		console.log(last_ad);
 		$.post("/getdata", data, success = function (response) {
-			console.log(response)
+			renderAd(response);
 		});
 	});
 }
