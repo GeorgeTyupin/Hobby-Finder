@@ -13,25 +13,26 @@ class Database():
         with sqlite3.connect(DATA_DST) as cur:
             sql = f"SELECT * FROM users WHERE user_name = '{login}' "
             result = cur.execute(sql).fetchone()
+            print(result)
             return result
     
     def loadAdsTable(self):
         with sqlite3.connect(DATA_DST) as cur:
             sql = f"SELECT * FROM (SELECT * FROM ads ORDER BY time DESC LIMIT 20)"
-            save = cur.execute(sql)
+            save = cur.execute(sql).fetchall()
             if not save:
-                return []
+                return 'not 1'
             result = cur.execute(sql).fetchall()
-            print(result[0][5])
             self.last_time = result[0][5]
             return result
 
     def secondLoadAdsTable(self):
         with sqlite3.connect(DATA_DST) as cur:
-            sql = f"SELECT * FROM (SELECT * FROM ads WHERE '{time.time()}' < '{self.last_time}' ORDER BY time DESC LIMIT 20)"
-            save = cur.execute(sql)
+            sql = f"SELECT * FROM (SELECT * FROM ads WHERE time < '{self.last_time}' ORDER BY time DESC LIMIT 20)"
+            save = cur.execute(sql).fetchall()
+            print(save)
             if not save:
-                return []
+                return 'not 2'
             result = cur.execute(sql).fetchall()
             self.last_time = result[0][5]
             return result

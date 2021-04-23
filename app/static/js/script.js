@@ -92,17 +92,16 @@ function getData() {
 		renderAd(response);
 	});
 	data['count'] = 20
-	document.querySelector('.render-btn').addEventListener('click', function(params) {
+}
+
+function getAds() {
 		ads = document.querySelectorAll('.ad');
 		last_ad = ads[ads.length - 1];
 		console.log(last_ad);
 		$.post("/getdata", data, success = function (response) {
 			renderAd(response);
 		});
-	});
 }
-
-
 
 /*
 ========================================================================================================
@@ -114,6 +113,7 @@ function main() {
 	createAd();
 	closeForm();
 	getData();
+	document.querySelector('.render-btn').addEventListener('click', getAds)
 }
 
 document.addEventListener("DOMContentLoaded", main);
