@@ -15,14 +15,25 @@ def index():
     else:
         data = {}
         data['ad_name'] = request.form.get('ad_name')
-        data['ad_category'] = request.form.get('ad_name')
+        data['ad_category'] = request.form.get('ad_category')
         data['ad-description'] = request.form.get('ad-description')
+        data['author-contacts'] = request.form.get('author-contacts')
         print(data)
-        return core.workingWithAds.loadAdToDatabase(data, session)
+        response = core.workingWithAds.loadAdToDatabase(data, session)
+        print(response, type(response))
+        return response
 
-@app.route("/getdata", methods=['GET', 'POST'])
+@app.route("/getads", methods=['GET', 'POST'])
 def render():
-    return db.secondLoadAdsTable()
+    response = db.secondLoadAdsTable()
+    print(response, type(response))
+    return response
+
+@app.route("/checkname", methods=['GET', 'POST'])
+def checkname():
+    response = session['login']
+    print(response, type(response))
+    return response
 
 @app.route("/auth" , methods = ['GET' , 'POST'])
 def auth():

@@ -1,5 +1,11 @@
 body {
 	background-color: #54575B !important;
+	width: 99vw;
+	overflow-x: hidden;
+}
+
+p {
+	margin-bottom: 0 !important;
 }
 
 button, .form-submit {
@@ -64,11 +70,11 @@ button, .form-submit {
 	height: 6rem;
 }
 
-.background-form {
+.background {
 	background-color: rgba(0, 0, 0, 0.70);
 	position: absolute;
 	z-index: 2;
-	height: 2000px;
+	height: 100vh;
 	min-width: 100%;
 	text-align: center;
 	display: flex;
@@ -93,11 +99,13 @@ button, .form-submit {
 	background-color: #5EC155;
 }
 
-.form-ad {
+.form-ad, .expanded-ad {
 	width: 35rem;
-	height: 40rem;
+	height: 43rem;
 	border-radius: 15px;
-	margin-top: 5rem;
+	margin-top: 3rem;
+	margin-left: auto;
+	margin-right: auto;
 	background-color: #555658;
 	border-top: #2C9221 solid 6px;
 	color: #D7D9DE;
@@ -108,7 +116,7 @@ button, .form-submit {
 	font-size: 2.2rem;
 }
 
-.form-input-name, .form-input-category, .form-description {
+.form-input-name, .form-input-category, .form-description, .form-contacts{
 	width: 26rem;
 	height: 2.5rem;
 	margin-top: 1.4rem;
@@ -141,7 +149,7 @@ button, .form-submit {
 	background-color: #F97D55;
 }
 
-.add-img {
+.add-img, .expanded-ad-img {
 	background-color: #fff;
 	width: 22rem;
 	height: 12rem;
@@ -149,11 +157,16 @@ button, .form-submit {
 	margin-left: 6.1rem;
 }
 
+.expanded-ad-name, .expanded-ad-category, .expanded-ad-description, .expanded-ad-contacts {
+	
+}
+
 .ad-img {
 	background-color: #fff;
 	width: 15rem;
 	height: 10rem;
-	margin-left: 4.7rem;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 2rem;
 }
 
@@ -202,7 +215,6 @@ button, .form-submit {
 	font-size: 1.6rem;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 2rem;
 }
 
 .render-btn {

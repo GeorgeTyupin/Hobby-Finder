@@ -1,6 +1,7 @@
 from . import DATA_DST
 import sqlite3
 import time
+import json
 
 class Database():
     def __init__(self):
@@ -35,7 +36,7 @@ class Database():
                 return 'not 2'
             result = cur.execute(sql).fetchall()
             self.last_time = result[0][5]
-            return result
+            return json.dumps(result)
 
     def checkingAdForUniqueness(self, data):
         with sqlite3.connect(DATA_DST) as cur:
@@ -53,8 +54,8 @@ class Database():
 
     def addAD(self, data):
         with sqlite3.connect(DATA_DST) as cur:
-            sql = f"""INSERT INTO ads ('ad_name' , 'author_id', 'ad_category', 'ad_description', 'time') 
-                VALUES ('{data['ad_name']}','{data['author_id']}','{data['ad_category']}','{data['ad-description']}','{time.time()}')"""
+            sql = f"""INSERT INTO ads ('ad_name' , 'author_id', 'ad_category', 'ad_description', 'time', 'author_contacts') 
+                VALUES ('{data['ad_name']}','{data['author_id']}','{data['ad_category']}','{data['ad-description']}','{time.time()}','{data['author-contacts']}')"""
             cur.execute(sql)
             cur.commit()
 
