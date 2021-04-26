@@ -14,7 +14,7 @@
 
 <body>
 	<div class="wrapper">
-		<div class="background">
+		<div class="background hide">
 			<div class="form-ad hide">
 				<h1 class="form-header">Создание объявления</h1>
 				<div class="add-img"></div>
@@ -27,12 +27,22 @@
 					<button class="form-close">Отмена</button>
 			</div>
 
-			<div class="expanded-ad">
+			<div class="expanded-ad hide">
 				<div class="expanded-ad-img"></div>
-				<div class="expanded-ad-name">Школа</div>
-				<div class="expanded-ad-category">школы</div>
-				<div class="expanded-ad-description">Просто школа</div>
-				<div class="expanded-ad-contacts">1234567</div>
+				<div class="expanded-ad-name"></div>
+				<div class="expanded-ad-category">
+					<p class="expanded-ad-category-title">Категории: </p>
+					<a class="expanded-ad-category-text"></a>
+				</div>
+				<div class="expanded-ad-description">
+					<p class="expanded-ad-description-title">Описание: </p>
+					<p class="expanded-ad-description-text"></p>
+				</div>
+				<div class="expanded-ad-contacts">
+					<p class="expanded-ad-contacts-title">Контакты: </p>
+					<p class="expanded-ad-contacts-text"></p>
+				</div>
+				<button class="expanded-ad-close">Закрыть</button>
 			</div>
 		</div>
 

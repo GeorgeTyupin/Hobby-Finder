@@ -25,6 +25,14 @@ function closeForm() {
 	});
 }
 
+function closeExpandAd() {
+	document.querySelector('.expanded-ad-close').addEventListener('click', function () {
+		document.body.style.overflowY = 'visible';
+		document.querySelector('.background').classList.add('hide');
+		document.querySelector('.expanded-ad').classList.add('hide');
+	});
+}
+
 // создание объявления
 function createAd() {
 	document.querySelector('.form-submit').addEventListener('click', function(){
@@ -50,8 +58,16 @@ function createAd() {
 
 //раскрытие объявления
 function expandAd() {
-	console.log($(this).children()[1]);
-	
+	document.querySelector('.ad').addEventListener('click', function () {
+		document.querySelector('.background').classList.remove('hide');
+		document.querySelector('.expanded-ad').classList.remove('hide');
+		console.log($(this).children()[1].innerHTML);
+		// console.log(event.target.innerHTML);
+		console.log(document.querySelector('.expanded-ad-name').innerHTML)
+		document.body.style.overflowY = 'hidden';
+		document.querySelector('.expanded-ad-name').innerHTML = $(this).children()[1].innerHTML;
+		document.querySelector('.expanded-ad-category-text').innerHTML = $(this).children()[2].innerHTML;
+	});
 }
 
 
@@ -119,8 +135,10 @@ function main() {
 	createAd();
 	closeForm();
 	renderName();
-	document.querySelector('.render-btn').addEventListener('click', getAds)
-	document.querySelector('.ad').addEventListener('click', expandAd)
+	closeExpandAd();
+	expandAd();
+	document.querySelector('.render-btn').addEventListener('click', getAds);
+	
 }
 
 document.addEventListener("DOMContentLoaded", main);

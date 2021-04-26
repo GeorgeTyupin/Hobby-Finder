@@ -101,7 +101,9 @@ button, .form-submit {
 
 .form-ad, .expanded-ad {
 	width: 35rem;
-	height: 43rem;
+	min-height: 34rem;
+	max-height: 90%;
+	height: min-content;
 	border-radius: 15px;
 	margin-top: 3rem;
 	margin-left: auto;
@@ -128,11 +130,12 @@ button, .form-submit {
 	height: 6rem;
 }
 
-.form-submit, .form-close {
+.form-submit, .form-close, .expanded-ad-close {
 	height: 2.24rem;
 	border-radius: 8px;
 	margin-top: 1.7rem;
 	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
 }
 
 .form-submit {
@@ -140,12 +143,12 @@ button, .form-submit {
 	width: 15rem;
 }
 
-.form-close {
+.form-close, .expanded-ad-close {
 	background-color: #FF5A37;
 	width: 10rem;
 }
 
-.form-close:hover {
+.form-close:hover, .expanded-ad-close:hover {
 	background-color: #F97D55;
 }
 
@@ -158,7 +161,17 @@ button, .form-submit {
 }
 
 .expanded-ad-name, .expanded-ad-category, .expanded-ad-description, .expanded-ad-contacts {
-	
+	margin-top: 1.4rem;
+	color: #F0F0F0;
+}
+
+.expanded-ad-name {
+	font-size: 2.25rem;
+}
+
+.expanded-ad-description-title, .expanded-ad-category-title, .expanded-ad-contacts-title {
+	font-size: 1.4rem;
+	color: #F0F0F0;
 }
 
 .ad-img {
@@ -181,9 +194,17 @@ button, .form-submit {
 	font-size: 1.38rem;
 }
 
-.categories {
+.expanded-ad-description{
+	font-size: 1.1rem;
+}
+
+.categories, .expanded-ad-category {
 	margin-top: 1.2rem;
 	color: #773DA2;
+}
+
+.expanded-ad-category {
+	font-size: 1.2rem;
 }
 
 .singin-link {
