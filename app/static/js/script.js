@@ -66,7 +66,9 @@ function expandAd() {
 		console.log(document.querySelector('.expanded-ad-name').innerHTML)
 		document.body.style.overflowY = 'hidden';
 		document.querySelector('.expanded-ad-name').innerHTML = $(this).children()[1].innerHTML;
-		document.querySelector('.expanded-ad-category-text').innerHTML = $(this).children()[2].innerHTML;
+		document.querySelector('.expanded-ad-category-text').innerHTML = $(this).children()[3].innerHTML;
+		document.querySelector('.expanded-ad-description-text').innerHTML = $(this).children()[4].innerHTML;
+		document.querySelector('.expanded-ad-contacts-text').innerHTML = $(this).children()[5].innerHTML;
 	});
 }
 
@@ -80,9 +82,9 @@ function expandAd() {
 function renderName() {
 	$.post("/checkname", 'checkname', success = function (response) {
 		if (response) {
-			document.querySelector('.singin').classList.add('hide');
 			// $('slk-user-name').text(response);
 		} else {
+			document.querySelector('.singin').classList.add('hide');
 			document.querySelector('.slk-user-name').classList.remove('hide');
 			document.querySelector('.create-ad').classList.remove('hide');
 		}
@@ -97,6 +99,8 @@ function renderAd(response) {
 						<h2 class="ad-name">${element[1]}</h2>
 						<p class="ad-category">Категория:</p>
 						<a href="#" class="categories">${element[3]}</a>
+						<p class="hide">${element[4]}</p>
+						<p class="hide">${element[6]}</p>
 					</div>`);
 	});
 }
