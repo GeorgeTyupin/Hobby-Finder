@@ -35,7 +35,7 @@ button, .form-submit {
 	height: 30rem;
 	border-radius: 20px;
 	position: sticky;
-  top: 10rem;
+   top: 10rem;
  }
 
 .slk {
@@ -102,7 +102,7 @@ button, .form-submit {
 .form-ad, .expanded-ad {
 	width: 35rem;
 	min-height: 34rem;
-	max-height: 90%;
+	max-height: 95%;
 	height: min-content;
 	border-radius: 15px;
 	margin-top: 3rem;

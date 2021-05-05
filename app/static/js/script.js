@@ -12,6 +12,7 @@ function createForm() {
 		document.body.style.overflowY = 'hidden';
 		document.querySelector('.background').classList.remove('hide');
 		document.querySelector('.form-ad').classList.remove('hide');
+		document.querySelector('.background').style.top = getCoords() + 'px';
 	});
 
 }
@@ -25,6 +26,7 @@ function closeForm() {
 	});
 }
 
+//закрытие развернутого объявления
 function closeExpandAd() {
 	document.querySelector('.expanded-ad-close').addEventListener('click', function () {
 		document.body.style.overflowY = 'visible';
@@ -58,18 +60,23 @@ function createAd() {
 
 //раскрытие объявления
 function expandAd() {
-	document.querySelector('.ad').addEventListener('click', function () {
+	$('.ad').on('click', function () {
 		document.querySelector('.background').classList.remove('hide');
 		document.querySelector('.expanded-ad').classList.remove('hide');
 		console.log($(this).children()[1].innerHTML);
 		// console.log(event.target.innerHTML);
 		console.log(document.querySelector('.expanded-ad-name').innerHTML)
+		document.querySelector('.background').style.top = getCoords() + 'px';
 		document.body.style.overflowY = 'hidden';
 		document.querySelector('.expanded-ad-name').innerHTML = $(this).children()[1].innerHTML;
 		document.querySelector('.expanded-ad-category-text').innerHTML = $(this).children()[3].innerHTML;
 		document.querySelector('.expanded-ad-description-text').innerHTML = $(this).children()[4].innerHTML;
 		document.querySelector('.expanded-ad-contacts-text').innerHTML = $(this).children()[5].innerHTML;
 	});
+}
+
+function getCoords() {
+	return window.pageYOffset;
 }
 
 
