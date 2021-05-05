@@ -64,7 +64,6 @@ function expandAd() {
 		document.querySelector('.background').classList.remove('hide');
 		document.querySelector('.expanded-ad').classList.remove('hide');
 		console.log($(this).children()[1].innerHTML);
-		// console.log(event.target.innerHTML);
 		console.log(document.querySelector('.expanded-ad-name').innerHTML)
 		document.querySelector('.background').style.top = getCoords() + 'px';
 		document.body.style.overflowY = 'hidden';
@@ -89,11 +88,12 @@ function getCoords() {
 function renderName() {
 	$.post("/checkname", 'checkname', success = function (response) {
 		if (response) {
-			// $('slk-user-name').text(response);
-		} else {
+			console.log(response);
 			document.querySelector('.singin').classList.add('hide');
-			document.querySelector('.slk-user-name').classList.remove('hide');
 			document.querySelector('.create-ad').classList.remove('hide');
+		} else {
+			console.log('aaa');
+			document.querySelector('.create-ad').classList.add('hide');
 		}
 	});
 }

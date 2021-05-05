@@ -31,7 +31,9 @@ def render():
 
 @app.route("/checkname", methods=['GET', 'POST'])
 def checkname():
-    response = session['login']
+    response = ''
+    if 'login' in session:
+        response = session['login']
     print(response, type(response))
     return response
 
