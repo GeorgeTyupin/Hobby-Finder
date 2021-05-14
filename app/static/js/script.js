@@ -4,9 +4,16 @@ data = {}
 РАБОТА НА СТРАНИЧКЕ
 ======================================================================================================== 
 */
+// отрисовка формы для выбора категории
+function createSelectCategoryForm() {
+	document.querySelector('.form-input-category').addEventListener('click', function () {
+		document.querySelector('.form-ad').classList.add('hide');
+		document.querySelector('.select-category-form').classList.remove('hide');
+	});
+}
 
-// отрисовка формы
-function createForm() {
+// отрисовка формы для создания объявлений
+function createAdForm() {
 	btn = document.querySelector(".create-ad");
 	btn.addEventListener('click', function(){
 		document.body.style.overflowY = 'hidden';
@@ -18,7 +25,7 @@ function createForm() {
 }
 
 // закрытие формы для создания объявлений
-function closeForm() {
+function closeAdForm() {
 	document.querySelector('.form-close').addEventListener('click', function(){
 		document.body.style.overflowY = 'visible';
 		document.querySelector('.background').classList.add('hide');
@@ -35,27 +42,58 @@ function closeExpandAd() {
 	});
 }
 
+function getSelectedCategories() {
+	document.querySelector('.save-categories').addEventListener('click', function() {
+		data['categories'] = [];
+		edu = document.querySelector('#education');
+		if (edu.checked == true) {
+			data['categories'].push('Образование и обучение')
+		}
+		music = document.querySelector('#music');
+		if (music.checked == true) {
+			data['categories'].push('музыка')
+		}
+		sport = document.querySelector('#sport');
+		if (sport.checked == true) {
+			data['categories'].push('спорт')
+		}
+		work = document.querySelector('#work');
+		if (work.checked == true) {
+			data['categories'].push('работа')
+		}
+		exact_sciences = document.querySelector('#exact-sciences');
+		if (exact_sciences.checked == true) {
+			data['categories'].push('точные науки')
+		}
+		humanitarian_sciences = document.querySelector('#humanitarian-sciences');
+		if (humanitarian_sciences.checked == true) {
+			data['categories'].push('гуманитарные науки')
+		}
+		art = document.querySelector('#art');
+		if (art.checked == true) {
+			data['categories'].push('искусство')
+		}
+		createAd();
+	});
+}
+
 // создание объявления
 function createAd() {
-	document.querySelector('.form-submit').addEventListener('click', function(){
-		data['ad_name'] = document.querySelector('.form-input-name').value
-		data['ad_category'] = document.querySelector('.form-input-category').value
-		data['ad-description'] = document.querySelector('.form-description').value
-		data['author-contacts'] = document.querySelector('.form-contacts').value
-		$('.content-wrap').append(`				
-					<div class="ad" class="ad">
-						<div class="ad-img"></div>
-						<h2 class="ad-name">${data['ad_name']}</h2>
-						<p class="ad-category">Категория:</p>
-						<a href="#" class="categories">${data['ad_category']}</a>
-					</div>`);
-		console.log(data)
-		sendingAd(data);
-		document.body.style.overflowY = 'visible';
-		document.querySelector('.background').classList.add('hide');
-		document.querySelector('.form-ad').classList.remove('hide');
-		console.log("hello")
-	});
+	data['ad_name'] = document.querySelector('.form-input-name').value
+	data['ad-description'] = document.querySelector('.form-description').value
+	data['author-contacts'] = document.querySelector('.form-contacts').value
+	$('.content-wrap').append(`				
+			<div class="ad" class="ad">
+				<div class="ad-img"></div>
+				<h2 class="ad-name">${data['ad_name']}</h2>
+				<p class="ad-category">Категория:</p>
+				<a href="#" class="categories">${data['categories']}</a>
+			</div>`);
+	console.log(data)
+	sendingAd(data);
+	document.body.style.overflowY = 'visible';
+	document.querySelector('.background').classList.add('hide');
+	document.querySelector('.form-ad').classList.remove('hide');
 }
 
 //раскрытие объявления
@@ -74,6 +112,7 @@ function expandAd() {
 	});
 }
 
+//получение коодинаты темного фона
 function getCoords() {
 	return window.pageYOffset;
 }
@@ -142,14 +181,16 @@ function getAds() {
 ========================================================================================================
 */
 function main() {
-	createForm();
+	createAdForm();
 	createAd();
-	closeForm();
+	closeAdForm();
 	renderName();
 	closeExpandAd();
 	expandAd();
+	createSelectCategoryForm();
+	getSelectedCategories();
 	document.querySelector('.render-btn').addEventListener('click', getAds);
-	
+	document.querySelector('.form-submit').addEventListener('click', createAd);
 }
 
 document.addEventListener("DOMContentLoaded", main);

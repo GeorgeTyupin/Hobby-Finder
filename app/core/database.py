@@ -54,8 +54,8 @@ class Database():
 
     def addAD(self, data):
         with sqlite3.connect(DATA_DST) as cur:
-            sql = f"""INSERT INTO ads ('ad_name' , 'author_id', 'ad_category', 'ad_description', 'time', 'author_contacts') 
-                VALUES ('{data['ad_name']}','{data['author_id']}','{data['ad_category']}','{data['ad-description']}','{time.time()}','{data['author-contacts']}')"""
+            sql = f"""INSERT INTO ads ('ad_name' , 'author_id', 'ad_description', 'time', 'author_contacts') 
+                VALUES ('{data['ad_name']}','{data['author_id']}','{data['ad-description']}','{time.time()}','{data['author-contacts']}')"""
             cur.execute(sql)
             cur.commit()
 

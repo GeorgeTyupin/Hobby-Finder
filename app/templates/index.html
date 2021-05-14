@@ -20,9 +20,9 @@
 				<div class="add-img"></div>
 					<!-- <input type="file" class="add-img" name=""> -->
 					<input class="form-input-name" type="text" placeholder="Название">
-					<input class="form-input-category" type="text" placeholder="Категория">
 					<p><textarea class="form-description" type="text" placeholder="Описание"></textarea></p>
 					<input class="form-contacts" type="text" placeholder="Ваши контакты (почта или номер телефона)">
+					<button class="form-input-category">Выбрать категорию</button>
 					<input class="form-submit" type="submit" value="Сохранить">
 					<button class="form-close">Отмена</button>
 			</div>
@@ -43,6 +43,44 @@
 					<p class="expanded-ad-contacts-text"></p>
 				</div>
 				<button class="expanded-ad-close">Закрыть</button>
+			</div>
+
+			<div class="select-category-form hide">
+				<div class="checkbox-wrap">
+					<input class="checkbox" type="checkbox" id="education">
+					<label class="checkbox-text" for="education">Образование и обучение</label>
+				</div>
+
+				<div class="checkbox-wrap">
+					<input class="checkbox" type="checkbox" id="music">
+					<label class="checkbox-text" for="music">Музыка</label>
+				</div>
+
+				<div class="checkbox-wrap">
+					<input class="checkbox" type="checkbox" id="sport">
+					<label class="checkbox-text" for="sport">Спорт</label>
+				</div>
+
+				<div class="checkbox-wrap">
+					<input class="checkbox" type="checkbox" id="work">
+					<label class="checkbox-text" for="work">Работа</label>
+				</div>
+
+				<div class="checkbox-wrap">
+					<input class="checkbox" type="checkbox" id="exact-sciences">
+					<label class="checkbox-text" for="exact-sciences">Точные науки</label>
+				</div>
+
+				<div class="checkbox-wrap">
+					<input class="checkbox" type="checkbox" id="humanitarian-sciences">
+					<label class="checkbox-text" for="humanitarian-sciences">Гуманитарные науки</label>
+				</div>
+
+				<div class="checkbox-wrap">
+					<input class="checkbox" type="checkbox" id="art">
+					<label class="checkbox-text" for="art">Исскусство</label>
+				</div>
+				<button class="save-categories">Завершить создание</button>
 			</div>
 		</div>
 

@@ -95,11 +95,11 @@ button, .form-submit {
 	margin-top: 23rem;
 }
 
-.create-ad:hover, .form-submit:hover {
+.create-ad:hover, .form-submit:hover, .save-categories {
 	background-color: #5EC155;
 }
 
-.form-ad, .expanded-ad {
+.form-ad, .expanded-ad, .select-category-form {
 	width: 35rem;
 	min-height: 34rem;
 	max-height: 95%;
@@ -122,8 +122,19 @@ button, .form-submit {
 	width: 26rem;
 	height: 2.5rem;
 	margin-top: 1.4rem;
+	padding-left: 0.5rem;
 	border-radius: 7px;
 	background-color: #DEE2E2;
+}
+
+.form-input-category {
+	color: #676969;
+	background-color: #FFDAA6;
+	text-align: left;
+}
+
+.form-input-category:hover {
+	background-color: #ddc6a6;
 }
 
 .form-description {
@@ -174,6 +185,16 @@ button, .form-submit {
 	color: #F0F0F0;
 }
 
+.save-categories {
+	background-color: #2C9221;
+	width: 15rem;
+	height: 2.5rem;
+	border-radius: 12px;
+	margin-top: 13%;
+	color: #DCE0E8;
+	font-size: 1.3rem;
+}
+
 .ad-img {
 	background-color: #fff;
 	width: 15rem;
@@ -205,6 +226,70 @@ button, .form-submit {
 
 .expanded-ad-category {
 	font-size: 1.2rem;
+}
+
+.checkbox-wrap {
+	position: relative;
+	margin-left: 1rem;
+	margin-top: 1.5rem;
+}
+
+.checkbox, .checkbox-text {
+	display: inline;
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.checkbox-text:before {
+  content: "";
+  display: block;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin-top: 0.25rem;
+  margin-left: 6.5rem;
+  position: absolute;
+  transition: background 0.1s linear, border 0.1s linear;
+}
+
+.checkbox-text:after {
+  content: "";
+  display: block;
+  width: 1.7rem;
+  height: 1.7rem;
+  background: url("../img/check.svg") no-repeat;
+  background-size: 1.2rem 1.2rem;
+  opacity: 0;
+  top: 5px;
+  left: 4px;
+  z-index: 2;
+  margin-top: 0.25rem;
+  margin-left: 6.5rem;
+  position: absolute;
+  transition: opacity 0.1s linear;
+}
+
+.checkbox:checked + .checkbox-text:before {
+  background-color: #5EC155;
+  border-color: #319612;
+}
+
+.checkbox:checked + .checkbox-text:after {
+  opacity: 1;
+}
+
+.checkbox-text {
+	font-size: 1.4rem;
+	cursor: pointer;
 }
 
 .singin-link {

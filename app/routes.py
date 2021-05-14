@@ -15,7 +15,6 @@ def index():
     else:
         data = {}
         data['ad_name'] = request.form.get('ad_name')
-        data['ad_category'] = request.form.get('ad_category')
         data['ad-description'] = request.form.get('ad-description')
         data['author-contacts'] = request.form.get('author-contacts')
         print(data)
