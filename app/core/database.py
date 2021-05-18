@@ -27,6 +27,18 @@ class Database():
             self.last_time = result[0][5]
             return result
 
+    def loadFilteredByCategoryAds(self, data):
+        with sqlite3.connect(DATA_DST) as cur:
+            sql = f"SELECT * FROM ads WHERE ad_categories LIKE '%{data['filter-categories']}%'"
+            result = cur.execute(sql).fetchall()
+            return result
+
+    def loadFilteredByNameAds(self, data):
+        with sqlite3.connect(DATA_DST) as cur:
+            sql = f"SELECT * FROM ads WHERE ad_name LIKE '%{data['filter-name']}%'"
+            result = cur.execute(sql).fetchall()
+            return result
+
     def secondLoadAdsTable(self):
         with sqlite3.connect(DATA_DST) as cur:
             sql = f"SELECT * FROM (SELECT * FROM ads WHERE time < '{self.last_time}' ORDER BY time DESC LIMIT 20)"
@@ -54,8 +66,8 @@ class Database():
 
     def addAD(self, data):
         with sqlite3.connect(DATA_DST) as cur:
-            sql = f"""INSERT INTO ads ('ad_name' , 'author_id', 'ad_description', 'time', 'author_contacts') 
-                VALUES ('{data['ad_name']}','{data['author_id']}','{data['ad-description']}','{time.time()}','{data['author-contacts']}')"""
+            sql = f"""INSERT INTO ads ('ad_name' , 'author_id', 'ad_description', 'time', 'author_contacts', 'ad_categories') 
+                VALUES ('{data['ad_name']}','{data['author_id']}','{data['ad-description']}','{time.time()}','{data['author-contacts']}','{data['categories']}')"""
             cur.execute(sql)
             cur.commit()
 

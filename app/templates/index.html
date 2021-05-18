@@ -80,38 +80,66 @@
 					<input class="checkbox" type="checkbox" id="art">
 					<label class="checkbox-text" for="art">Исскусство</label>
 				</div>
+
+				<div class="checkbox-wrap">
+					<input class="checkbox" type="checkbox" id="section">
+					<label class="checkbox-text" for="section">Кружки и секции</label>
+				</div>
 				<button class="save-categories">Завершить создание</button>
 			</div>
 		</div>
 
 		<div class="header row">
-			<input type="" name="" class="searchinput">
+			<div class="col-2"></div>
+			<div class="search-wrap col">
+				<input type="" name="" class="searchinput">
+				<img class="search-img" src="../static/img/search.png"/>
+			</div>
+			<div class="col-2"></div>
 		</div>
 
 		<div class="prev row" style="margin-top: 5em">
 			<div class="col-1"></div>
 
-			<div class="filter col-2"></div>
+			<div class="filter col-2">
+				<h2 align="center" class="filter-title">Фильтры</h2>
+				<div class="filter-checkbox-wrap">
+					<input class="filter-checkbox" type="checkbox" id="filter-education">
+					<label class="filter-checkbox-text" for="filter-education">Образование и обучение</label>
+				</div>
+				<div class="filter-checkbox-wrap">
+					<input class="filter-checkbox" type="checkbox" id="filter-music">
+					<label class="filter-checkbox-text" for="filter-music">Музыка</label>
+				</div>
+				<div class="filter-checkbox-wrap">
+					<input class="filter-checkbox" type="checkbox" id="filter-sport">
+					<label class="filter-checkbox-text" for="filter-sport">Спорт</label>
+				</div>
+				<div class="filter-checkbox-wrap">
+					<input class="filter-checkbox" type="checkbox" id="filter-work">
+					<label class="filter-checkbox-text" for="filter-work">Работа</label>
+				</div>
+				<div class="filter-checkbox-wrap">
+					<input class="filter-checkbox" type="checkbox" id="filter-exact-sciences">
+					<label class="filter-checkbox-text" for="filter-exact-sciences">Точные науки</label>
+				</div>
+				<div class="filter-checkbox-wrap">
+					<input class="filter-checkbox" type="checkbox" id="filter-humanitarian-sciences">
+					<label class="filter-checkbox-text" for="filter-humanitarian-sciences">Гуманитарные науки</label>
+				</div>
+				<div class="filter-checkbox-wrap">
+					<input class="filter-checkbox" type="checkbox" id="filter-art">
+					<label class="filter-checkbox-text" for="filter-art">Исскусство</label>
+				</div>
+				<div class="filter-checkbox-wrap">
+					<input class="filter-checkbox" type="checkbox" id="filter-section">
+					<label class="filter-checkbox-text" for="filter-section">Кружки и секции</label>
+				</div>
+				<div class="select-category-filter">Найти</div>
+			</div>
 			
 			<div class="content col">
 				<div class="content-wrap">
-					<div class="ad" style="margin-top: 0px;">
-						<div class="ad-img"></div>
-						<h2 class="ad-name">Шахматы</h2>
-						<p class="ad-category">Категория:</p>
-						<a href="#" class="categories">Кружки, обучение</a>
-						<p class="hide">Просто кружок шахмат</p>
-						<p class="hide">1234568</p>
-					</div>
-					<div class="ad" style="margin-top: 0px;">
-						<div class="ad-img"></div>
-						<h2 class="ad-name">Частная школа</h2>
-						<p class="ad-category">Категория:</p>
-						<a href="#" class="categories">Школа, учебное учериждение</a>
-						<p class="hide">Просто школа</p>
-						<p class="hide">1234568</p>
-					</div>
-
 					{%for i in data%}
 						<div class="ad">
 							<div class="ad-img"></div>
@@ -119,7 +147,7 @@
 							<p class="ad-category">Категория:</p>
 							<a href="#" class="categories">{{i[3]}}</a>
 							<p class="hide">{{i[4]}}</p>
-							<p class="hide">{{i[]}}</p>
+							<p class="hide">{{i[5]}}</p>
 						</div>
 					{%endfor%}
 				</div>

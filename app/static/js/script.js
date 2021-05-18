@@ -47,33 +47,78 @@ function getSelectedCategories() {
 		data['categories'] = [];
 		edu = document.querySelector('#education');
 		if (edu.checked == true) {
-			data['categories'].push('Образование и обучение')
+			data['categories'].push('образование и обучение');
 		}
 		music = document.querySelector('#music');
 		if (music.checked == true) {
-			data['categories'].push('музыка')
+			data['categories'].push('музыка');
 		}
 		sport = document.querySelector('#sport');
 		if (sport.checked == true) {
-			data['categories'].push('спорт')
+			data['categories'].push('спорт');
 		}
 		work = document.querySelector('#work');
 		if (work.checked == true) {
-			data['categories'].push('работа')
+			data['categories'].push('работа');
 		}
 		exact_sciences = document.querySelector('#exact-sciences');
 		if (exact_sciences.checked == true) {
-			data['categories'].push('точные науки')
+			data['categories'].push('точные науки');
 		}
 		humanitarian_sciences = document.querySelector('#humanitarian-sciences');
 		if (humanitarian_sciences.checked == true) {
-			data['categories'].push('гуманитарные науки')
+			data['categories'].push('гуманитарные науки');
 		}
 		art = document.querySelector('#art');
 		if (art.checked == true) {
-			data['categories'].push('искусство')
+			data['categories'].push('искусство');
 		}
+		section = document.querySelector('#section');
+		if (section.checked == true) {
+			data['categories'].push('кружки и секции');
+		}
+		data['categories'] = data['categories'].join(' ');
 		createAd();
+	});
+}
+
+function getFilterCategories() {
+	document.querySelector('.select-category-filter').addEventListener('click', function() {
+		data['filter-categories'] = [];
+		edu = document.querySelector('#filter-education');
+		if (edu.checked == true) {
+			data['filter-categories'].push('образование и обучение');
+		}
+		music = document.querySelector('#filter-music');
+		if (music.checked == true) {
+			data['filter-categories'].push('музыка');
+		}
+		sport = document.querySelector('#filter-sport');
+		if (sport.checked == true) {
+			data['filter-categories'].push('спорт');
+		}
+		work = document.querySelector('#filter-work');
+		if (work.checked == true) {
+			data['filter-categories'].push('работа');
+		}
+		exact_sciences = document.querySelector('#filter-exact-sciences');
+		if (exact_sciences.checked == true) {
+			data['filter-categories'].push('точные науки');
+		}
+		humanitarian_sciences = document.querySelector('#filter-humanitarian-sciences');
+		if (humanitarian_sciences.checked == true) {
+			data['filter-categories'].push('гуманитарные науки');
+		}
+		art = document.querySelector('#filter-art');
+		if (art.checked == true) {
+			data['filter-categories'].push('искусство');
+		}
+		section = document.querySelector('#filter-section');
+		if (section.checked == true) {
+			data['filter-categories'].push('кружки и секции');
+		}
+		data['filter-categories'] = data['filter-categories'].join(' ');
+		getFilteredByCategoryAds();
 	});
 }
 
@@ -93,7 +138,6 @@ function createAd() {
 	sendingAd(data);
 	document.body.style.overflowY = 'visible';
 	document.querySelector('.background').classList.add('hide');
-	document.querySelector('.form-ad').classList.remove('hide');
 }
 
 //раскрытие объявления
@@ -126,6 +170,7 @@ function getCoords() {
 */
 function renderName() {
 	$.post("/checkname", 'checkname', success = function (response) {
+		response = JSON.parse(response);
 		if (response) {
 			console.log(response);
 			document.querySelector('.singin').classList.add('hide');
@@ -140,15 +185,28 @@ function renderName() {
 function renderAd(response) {
 	response.forEach(element => {
 		$('.content-wrap').append(`				
-					<div class="ad" class="ad">
-						<div class="ad-img"></div>
-						<h2 class="ad-name">${element[1]}</h2>
-						<p class="ad-category">Категория:</p>
-						<a href="#" class="categories">${element[3]}</a>
-						<p class="hide">${element[4]}</p>
-						<p class="hide">${element[6]}</p>
-					</div>`);
+			<div class="ad" class="ad">
+				<div class="ad-img"></div>
+				<h2 class="ad-name">${element[1]}</h2>
+				<p class="ad-category">Категория:</p>
+				<a href="#" class="categories">${element[3]}</a>
+				<p class="hide">${element[4]}</p>
+				<p class="hide">${element[6]}</p>
+			</div>`
+		);
 	});
+	removeIndentFromAds();
+}
+
+function removeIndentFromAds() {
+	ads = $('.ad')
+	ads[0].style.marginTop = "0px";
+	ads[1].style.marginTop = "0px";
+	console.log(ads)
+}
+
+function removeAds() {
+	$('.ad').remove();
 }
 
 
@@ -162,18 +220,42 @@ function renderAd(response) {
 // отправка информации об объявлении на сервер
 function  sendingAd(data) {
 	$.post("/", data, success = function(response) {
+		response = JSON.parse(response);
 		console.log(response)
 	});
 }
 
 function getAds() {
-		$.post("/getads", data, success = function (response) {
-			response = JSON.parse(response);
-			// document.querySelector('.render-btn').classList.add('hide');
-			console.log(response);
-			renderAd(response);
-		});
+	$.post("/getads", data, success = function (response) {
+		response = JSON.parse(response);
+		// document.querySelector('.render-btn').classList.add('hide');
+		console.log(response);
+		renderAd(response);
+	});
 }
+
+function getFilteredByCategoryAds() {
+	$.post("/getfilteredbycategoryads", data, success = function (response) {
+		response = JSON.parse(response);
+		removeAds();
+		renderAd(response);
+	});
+}
+
+function getFilteredByNameAds() {
+	console.log(document.querySelector('.search-img'))
+	$('.search-img').on('click', function() {
+		data['filter-name'] = document.querySelector('.searchinput').value
+		$.post("/getfilteredbynameads", data, success = function (response) {
+			response = JSON.parse(response);
+			removeAds();
+			renderAd(response);
+			console.log(response)
+		});
+	});
+}
+
+
 
 /*
 ========================================================================================================
@@ -189,8 +271,12 @@ function main() {
 	expandAd();
 	createSelectCategoryForm();
 	getSelectedCategories();
+	getFilterCategories();
+	getFilteredByNameAds();
 	document.querySelector('.render-btn').addEventListener('click', getAds);
 	document.querySelector('.form-submit').addEventListener('click', createAd);
 }
+
+setTimeout(removeIndentFromAds, 1);
 
 document.addEventListener("DOMContentLoaded", main);
