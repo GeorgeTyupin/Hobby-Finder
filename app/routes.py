@@ -19,7 +19,7 @@ def index():
         data['ad-description'] = request.form.get('ad-description')
         data['author-contacts'] = request.form.get('author-contacts')
         data['categories'] = request.form.get('categories')
-        print(data)
+        data['ad-img'] = request.form.get('ad-img')
         response = core.workingWithAds.loadAdToDatabase(data, session)
         print(response, type(response))
         return json.dumps(response)

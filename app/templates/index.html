@@ -17,8 +17,9 @@
 		<div class="background hide">
 			<div class="form-ad hide">
 				<h1 class="form-header">Создание объявления</h1>
-				<div class="add-img"></div>
-					<!-- <input type="file" class="add-img" name=""> -->
+					<img class="ad-img hide">
+					<input type="file" style="display: none;" id="add-img" placeholder="Загрузить картинку">
+					<label class="add-img" for="add-img">Выбрать картинку для объявления</label>
 					<input class="form-input-name" type="text" placeholder="Название">
 					<p><textarea class="form-description" type="text" placeholder="Описание"></textarea></p>
 					<input class="form-contacts" type="text" placeholder="Ваши контакты (почта или номер телефона)">
@@ -142,7 +143,7 @@
 				<div class="content-wrap">
 					{%for i in data%}
 						<div class="ad">
-							<div class="ad-img"></div>
+							<img src="{{i[7]}}" class="ad-img">
 							<h2 class="ad-name">{{i[1]}}</h2>
 							<p class="ad-category">Категория:</p>
 							<a href="#" class="categories">{{i[3]}}</a>

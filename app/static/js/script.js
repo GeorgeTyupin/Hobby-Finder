@@ -127,17 +127,23 @@ function createAd() {
 	data['ad_name'] = document.querySelector('.form-input-name').value
 	data['ad-description'] = document.querySelector('.form-description').value
 	data['author-contacts'] = document.querySelector('.form-contacts').value
-	$('.content-wrap').append(`				
+	file = document.querySelector('#add-img').files[0];
+	var reader = new FileReader();
+	reader.onloadend = function () {
+		data['ad-img'] = reader.result
+		$('.content-wrap').append(`				
 			<div class="ad" class="ad">
-				<div class="ad-img"></div>
+				<img src="${data['ad-img']}" class="ad-img">
 				<h2 class="ad-name">${data['ad_name']}</h2>
 				<p class="ad-category">Категория:</p>
 				<a href="#" class="categories">${data['categories']}</a>
 			</div>`);
+	}
 	console.log(data)
 	sendingAd(data);
 	document.body.style.overflowY = 'visible';
 	document.querySelector('.background').classList.add('hide');
+	reader.readAsDataURL(file);
 }
 
 //раскрытие объявления
@@ -186,7 +192,7 @@ function renderAd(response) {
 	response.forEach(element => {
 		$('.content-wrap').append(`				
 			<div class="ad" class="ad">
-				<div class="ad-img"></div>
+				<img src="${element[7]}" class="ad-img">
 				<h2 class="ad-name">${element[1]}</h2>
 				<p class="ad-category">Категория:</p>
 				<a href="#" class="categories">${element[3]}</a>
@@ -219,6 +225,7 @@ function removeAds() {
 
 // отправка информации об объявлении на сервер
 function  sendingAd(data) {
+	console.log(data['ad-img'])
 	$.post("/", data, success = function(response) {
 		response = JSON.parse(response);
 		console.log(response)
@@ -264,7 +271,6 @@ function getFilteredByNameAds() {
 */
 function main() {
 	createAdForm();
-	createAd();
 	closeAdForm();
 	renderName();
 	closeExpandAd();

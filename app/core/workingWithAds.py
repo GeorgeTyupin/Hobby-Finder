@@ -7,4 +7,5 @@ def loadAdToDatabase(data, session):
     if data['ad_name']:
       db.addAD(data)
   if data['ad_name']:
+    print(data['ad-img'])
     return db.loadAdsTable()

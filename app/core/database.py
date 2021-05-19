@@ -19,6 +19,15 @@ class Database():
     
     def loadAdsTable(self):
         with sqlite3.connect(DATA_DST) as cur:
+            sql = f"SELECT * FROM ads"
+            save = cur.execute(sql).fetchall()
+            if not save:
+                return 'not 1'
+            result = cur.execute(sql).fetchall()
+            return result
+
+    def testLoadAdsTable(self):
+        with sqlite3.connect(DATA_DST) as cur:
             sql = f"SELECT * FROM (SELECT * FROM ads ORDER BY time DESC LIMIT 20)"
             save = cur.execute(sql).fetchall()
             if not save:
@@ -66,8 +75,8 @@ class Database():
 
     def addAD(self, data):
         with sqlite3.connect(DATA_DST) as cur:
-            sql = f"""INSERT INTO ads ('ad_name' , 'author_id', 'ad_description', 'time', 'author_contacts', 'ad_categories') 
-                VALUES ('{data['ad_name']}','{data['author_id']}','{data['ad-description']}','{time.time()}','{data['author-contacts']}','{data['categories']}')"""
+            sql = f"""INSERT INTO ads ('ad_name' , 'author_id', 'ad_description', 'time', 'author_contacts', 'ad_categories', 'ad_img') 
+                VALUES ('{data['ad_name']}','{data['author_id']}','{data['ad-description']}','{time.time()}','{data['author-contacts']}','{data['categories']}','{data['ad-img']}')"""
             cur.execute(sql)
             cur.commit()
 
